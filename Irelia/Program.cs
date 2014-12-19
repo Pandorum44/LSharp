@@ -410,6 +410,19 @@ namespace Irelia
 
             return enemyHealthPercent > myHealthPercent;
         }
+        
+        private static void Minionjump() // xSalice's Logic :P
+        {
+            foreach (Obj_AI_Minion minion in ObjectManager.Get<Obj_AI_Minion>().Where(minion =>
+                minion.Distance(Game.CursorPos) < 250))
+            {
+                if (Q.IsReady())
+                {
+                    Q.CastOnUnit(minion);
+                    return;
+                }
+            }
+        }
 
         private static void SetupMenu()
         {
@@ -468,6 +481,7 @@ namespace Irelia
             var miscMenu = new Menu("Misc", "Misc");
             miscMenu.AddItem(new MenuItem("interruptUlts", "Interrupt ults with E").SetValue(true));
             miscMenu.AddItem(new MenuItem("interruptQE", "Q + E to interrupt if not in range").SetValue(true));
+            miscMenu.AddItem(new MenuItem("Minionjump", "Escape w/ Q").SetValue(new KeyBind("Z".ToCharArray()[0], KeyBindType.Press)));
             // Packets RIP
             // miscMenu.AddItem(new MenuItem("packetCast", "Use packets to cast spells").SetValue(false)); 
             miscMenu.AddItem(new MenuItem("diveTower", "Dive tower when combo'ing").SetValue(false));
