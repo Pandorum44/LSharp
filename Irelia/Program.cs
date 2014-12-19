@@ -22,7 +22,7 @@ namespace Irelia
         private static Spell R;
         private static Obj_AI_Hero Player;
 
-        public static Spell[] spellUp = { Q, E, W, Q, Q, R, Q, E, Q, E, R, E, W, E, W, R, W, W };
+        public static Spell[] spellUp = { Q, E, W, Q, Q, R, Q, E, Q, E, R, E, W, E, W, R, W, W }; // Test
 
         private static bool toFire;
         private static int toCharges;
