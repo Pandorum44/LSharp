@@ -304,7 +304,7 @@ namespace Lux
 
         private static bool CanIgnite()
         {
-            return (IgniteSlot != SpellSlot.Unknown && Player.SummonerSpellbook.CanUseSpell(IgniteSlot) == SpellState.Ready);
+            return (IgniteSlot != SpellSlot.Unknown && Player.Spellbook.CanUseSpell(IgniteSlot) == SpellState.Ready);
         }
 
         private static void UseCombo()
@@ -358,7 +358,7 @@ namespace Lux
                 if (Player.Distance(Target) <= 600)
                     if (Target.Health <= Damage.GetAutoAttackDamage(Player, Target, true) && Player.Distance(Target) < 550)
                         Player.IssueOrder(GameObjectOrder.AttackUnit, Target);
-                    else Player.SummonerSpellbook.CastSpell(IgniteSlot, Target);
+                    else Player.Spellbook.CastSpell(IgniteSlot, Target);
             }
         }
 
@@ -452,7 +452,7 @@ namespace Lux
                         {
                             if (hero.Health <= Damage.GetAutoAttackDamage(Player, hero, true) && Player.Distance(hero) < 550)
                                 Player.IssueOrder(GameObjectOrder.AttackUnit, hero);
-                            else Player.SummonerSpellbook.CastSpell(IgniteSlot, hero);
+                            else Player.Spellbook.CastSpell(IgniteSlot, hero);
                         }
                     }
                 }
